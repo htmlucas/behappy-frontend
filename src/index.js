@@ -1,17 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./css/index.css";
+import "./css/pure.css";
+import App from "./App";
+import registerServiceWorker from "./registerServiceWorker";
 
-import registerServiceWorker from './registerServiceWorker';
-
-import App from './App';
-
-import './css/index.css';
-import './css/pure.css';
-
-import './img/favicon.ico';
-
-ReactDOM.render(
-  <App />, 
-  document.getElementById('root')
-);
+ReactDOM.render(<App />, document.getElementById("root"));
 registerServiceWorker();
