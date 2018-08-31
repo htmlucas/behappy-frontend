@@ -1,7 +1,10 @@
-export default class User {
+import Avatar from './Avatar';
+
+class User {
   constructor() {
     this.name = '';
     this.gender = '';
+    this.avatar = Avatar.getAll()[0];
   }
 
   validName = () => {
@@ -18,3 +21,7 @@ export default class User {
     });
   }
 }
+
+export default User;
+
+

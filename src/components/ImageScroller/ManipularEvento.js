@@ -118,3 +118,4 @@ class ManipularEvento {
 }
 
 export default ManipularEvento;
+

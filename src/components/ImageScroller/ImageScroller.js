@@ -52,38 +52,42 @@ class ImageScroller extends React.Component {
     }
 
     renderSelected() {
+        let style = {
+            float: 'left',
+            width: '140px',
+            height: '160px',
+            marginLeft: '42px',
+            backgroundColor: '#00C853',
+            position: 'relative',
+            zIndex: -2
+        };
+
         return (
-            <span
-                style={{
-                    float: 'left',
-                    width: '140px',
-                    height: '160px',
-                    marginLeft: '42px',
-                    backgroundColor: '#00C853',
-                    position: 'relative',
-                    zIndex: -2
-                }}
-            ></span>
+            <span style={style}></span>
         );
     }
 
     renderImage(entry,index) {
-        let eixoY = this.props.eixoY ? this.props.eixoY : 0;
+        let y = this.props.y ? this.props.y : 0;
+        let style = {
+          paddingTop: '8px',
+          position: 'absolute',
+          zIndex: '-1',
+          marginLeft: `${index * 140}px`
+        };
 
         return (
-            <li style={{
-                paddingTop: '8px',
-                position: 'absolute',
-                zIndex: '-1',
-                marginLeft: `${index * 140}px`
-            }} key={index + entry.toString()}>
+            <li 
+              style={style}
+              key={index + entry.toString()}
+            >
                 <Image
-                    eixoX={entry.index}
-                    eixoY={eixoY}
-                    width={140}
-                    height={140}
+                    x={entry.index}
+                    y={y}
+                    width={170}
+                    height={170}
                     backgroundHeight={280}
-                    arquivo={this.props.arquivo}
+                    file={this.props.file}
                 />
             </li>
         );
@@ -93,7 +97,7 @@ class ImageScroller extends React.Component {
         const ms = this.state.eventHandler.toqueEmExecucao
             ? '100ms' : '800ms';
 
-        const estilo = {
+        const style = {
             WebkitTransitionDuration: ms, /* Safari e Chrome */
             MsTransitionDuration: ms, /* IE */
             MozTransitionDuration: ms, /* Firefox */
@@ -104,7 +108,7 @@ class ImageScroller extends React.Component {
             margin: '0',
             padding: '0',
             position: 'relative',
-            width: `${this.props.images.length * 140}px`,
+            width: `${this.props.images.length * 170}px`,
             left: `${this.state.eventHandler.left}px`
         }
         
@@ -113,14 +117,14 @@ class ImageScroller extends React.Component {
         );
 
         return (
-            <ul style={estilo}>                
+            <ul style={style}>                
                 {lista}
             </ul>            
         )
     }
 
     renderImageScroller() {
-        const estilo = {
+        const style = {
             boxSizing: 'border-box',
             borderWidth: '1px',
             borderBottomWidth: '0',
@@ -136,7 +140,7 @@ class ImageScroller extends React.Component {
                 
         return (
             <div
-                style={estilo}
+                style={style}
                 onTouchStart={this.onTouchStart.bind(this)}
                 onTouchMove={this.onTouchMove.bind(this)}
                 onTouchEnd={this.onTouchEnd.bind(this)}
@@ -150,7 +154,7 @@ class ImageScroller extends React.Component {
     }
 
     renderLabel() {
-        const estilo = {
+        const style = {
             boxSizing: 'border-box',            
             borderWidth: '1px',
             borderStyle: 'solid',
@@ -168,7 +172,7 @@ class ImageScroller extends React.Component {
         };
 
         return (
-            <div style={estilo}>
+            <div style={style}>
                 {this.getAll().toString()}
             </div>
         )
@@ -205,3 +209,4 @@ class ImageScroller extends React.Component {
 }
 
 export default ImageScroller;
+

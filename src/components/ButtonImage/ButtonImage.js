@@ -7,7 +7,7 @@ import Image from '../Image';
 export default function ButtonImage(props) {
   let style = {};
   let index = 0;
-  const size = 30;
+  const size = 48;
 
   if (props.position === 'right') {
     style.float = 'right';
@@ -36,3 +36,4 @@ export default function ButtonImage(props) {
   );
 
 }
+

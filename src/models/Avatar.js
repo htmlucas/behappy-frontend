@@ -1,25 +1,19 @@
-import Avatar from './Avatar';
-
-class User {
-  constructor() {
-    this.name = '';
-    this.gender = '';
-    this.avatar = Avatar.getAll()[0];
+class Avatar {
+  constructor(index, description) {
+    this.index = index;
+    this.description = description;
   }
 
-  validName = () => {
-    return (
-      typeof this.name === 'string' &&
-      this.name.length !== 0 && 
-      this.name.length <= 40
-    );
+  toString() {
+    return this.description;
   }
 
-  validGender = () => {
-    return ['m', 'f'].some(param => {
-      return this.gender === param;
+  static getAll() {
+    return Array(23).fill(0).map((entry, index) => {
+      return new Avatar(index, `Avatar ${index+1}`)
     });
   }
 }
 
-export default User;
+export default Avatar;
+
