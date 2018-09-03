@@ -9,9 +9,11 @@ class Avatar {
   }
 
   static getAll() {
-    return Array(23).fill(0).map((entry, index) => {
-      return new Avatar(index, `Avatar ${index+1}`)
-    });
+    return Array(23)
+      .fill(0)
+      .map((entry, index) => {
+        return new Avatar(index, `Avatar ${index + 1}`);
+      });
   }
 }
 

@@ -13,7 +13,7 @@ div.center {
   margin-top: 92px;
 }
 
-noscript div	{
+noscript div {
   background-color: #2c80b9;
   color: #ffffff;
   font-weight: bold;
@@ -25,7 +25,7 @@ noscript div	{
 }
 
 noscript div img {
-  position:	absolute;
+  position: absolute;
   right: 0;
   bottom: 0;
 }

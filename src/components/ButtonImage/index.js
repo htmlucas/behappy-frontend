@@ -1,4 +1,3 @@
-import ButtonImage from './ButtonImage';
+import ButtonImage from "./ButtonImage";
 
 export default ButtonImage;
-

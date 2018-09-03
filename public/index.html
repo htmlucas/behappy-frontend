@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html manifest="behappy.appcache" lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
-    <link rel="manifest" href="/manifest.json">
-    <link rel="shortcut icon" href="img/favicon.ico">
-    <!--	Google	Chrome	e	Mozilal	Firefox	-->
-    <meta	name="theme-color" content="#2c80b9">
-    <!--	Windows	Phone	-->
-    <meta	name="msapplication-navbutton-color" content="#2c80b9">
-    <!--	iOS	Safari	-->
-    <meta	name="apple-mobile-web-app-status-bar-style" content="#2c80b9">
-    <meta	name="apple-mobile-web-app-capable" content="yes">
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>
-      Habilite o JavaScript no seu navegador para fazer esta aplicação funcionar.
-      <img	src="img/logo.png" />
-    </noscript>
-    <div id="root"></div>
-    <script>
-      if('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('behappy.sw.js')
-          .then(function(registration) {
-            console.log('ServiceWorker registrado com sucesso!');
-          }).catch(function(err) {
-            console.log('Erro no registro: ', err);
-          });
-      }
-      </script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <!--	Google	Chrome	e	Mozilal	Firefox	-->
+  <meta name="theme-color" content="#2c80b9">
+  <!--	Windows	Phone	-->
+  <meta name="msapplication-navbutton-color" content="#2c80b9">
+  <!--	iOS	Safari	-->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#2c80b9">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>React App</title>
+</head>
+
+<body>
+  <noscript>
+    Habilite o JavaScript no seu navegador para fazer esta aplicação funcionar.
+    <img src="img/logo.png" />
+  </noscript>
+  <div id="root"></div>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('behappy.sw.js')
+        .then(function (registration) {
+          console.log('ServiceWorker registrado com sucesso!');
+        }).catch(function (err) {
+          console.log('Erro no registro: ', err);
+        });
+    }
+  </script>
+</body>
+
 </html>

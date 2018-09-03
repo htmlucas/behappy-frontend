@@ -1,3 +1,3 @@
-import GenderSelector from './GenderSelector';
+import GenderSelector from "./GenderSelector";
 
 export default GenderSelector;

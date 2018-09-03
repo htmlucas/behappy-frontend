@@ -1,13 +1,13 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 
-import Label from '../Label';
-import Input from '../Input';
-import GenderSelector from '../GenderSelector';
-import Button from '../Button';
-import ImageScroller from '../ImageScroller/';
+import Label from "../Label";
+import Input from "../Input";
+import GenderSelector from "../GenderSelector";
+import Button from "../Button";
+import ImageScroller from "../ImageScroller/";
 
-import User from '../../models/User';
-import Avatar from '../../models/Avatar';
+import User from "../../models/User";
+import Avatar from "../../models/Avatar";
 
 class NewUser extends Component {
   constructor(props) {
@@ -16,19 +16,19 @@ class NewUser extends Component {
       user: new User(),
       validation: {
         invalidName: false,
-        invalidGender: false,
+        invalidGender: false
       },
-      completedFirstView: false,
+      completedFirstView: false
     };
   }
 
-  updateUserName = (event) => {
+  updateUserName = event => {
     let user = this.state.user;
     user.name = event.target.value;
     this.setState({
       user: user
     });
-  }
+  };
 
   updateUserGender = (event, gender) => {
     event.preventDefault();
@@ -38,25 +38,25 @@ class NewUser extends Component {
     this.setState({
       user: user
     });
-  }
+  };
 
-  valid = (e) => {
+  valid = e => {
     e.preventDefault();
     let user = this.state.user;
     let validation = this.state.validation;
 
-    validation.invalidName = ! user.validName();
-    validation.invalidGender = ! user.validGender();
+    validation.invalidName = !user.validName();
+    validation.invalidGender = !user.validGender();
 
-    let message = '';
+    let message = "";
     let completedFirstView = false;
 
     if (validation.invalidName && validation.invalidGender) {
-      message = 'Por favor, informe seu nome e gênero!!!';
+      message = "Por favor, informe seu nome e gênero!!!";
     } else if (validation.invalidName) {
-      message = 'Por favor, informe seu nome!!!';
+      message = "Por favor, informe seu nome!!!";
     } else if (validation.invalidGender) {
-      message = 'Por favor, selecione seu gênero!!!';
+      message = "Por favor, selecione seu gênero!!!";
     } else {
       completedFirstView = true;
     }
@@ -69,20 +69,20 @@ class NewUser extends Component {
       validation: validation,
       completedFirstView: completedFirstView
     });
-  }
+  };
 
   renderName() {
     return (
       <section>
-        <Label 
-          htmlFor="name" 
-          text="Quem é você?" 
+        <Label
+          htmlFor="name"
+          text="Quem é você?"
           invalidValue={this.state.validation.invalidName}
         />
-        <Input 
-          id="name" 
-          placeholder="Digite seu nome" 
-          maxLength="40" 
+        <Input
+          id="name"
+          placeholder="Digite seu nome"
+          maxLength="40"
           readOnly={this.state.completedFirstView}
           invalidValue={this.state.validation.invalidName}
           defaultValue={this.state.user.name}
@@ -116,8 +116,8 @@ class NewUser extends Component {
     if (this.state.completedFirstView) {
       return (
         <section>
-          <Button 
-            text="Voltar" 
+          <Button
+            text="Voltar"
             onClick={event => {
               event.preventDefault();
               let user = this.state.user;
@@ -126,10 +126,11 @@ class NewUser extends Component {
                 user: user,
                 completedFirstView: false
               });
-            }} 
+            }}
           />
-          <Button main
-            text="Salvar" 
+          <Button
+            main
+            text="Salvar"
             onClick={event => {
               event.preventDefault();
               this.props.onSubmit(this.state.user);
@@ -140,9 +141,7 @@ class NewUser extends Component {
     } else {
       return (
         <section>
-          <Button main 
-            text="Próximo" 
-            onClick={this.valid} />
+          <Button main text="Próximo" onClick={this.valid} />
         </section>
       );
     }
@@ -153,20 +152,19 @@ class NewUser extends Component {
       return (
         <section>
           <Label text="Escolha seu avatar:" />
-          <ImageScroller 
+          <ImageScroller
             file="img/avatars.png"
-            y={(this.state.user.gender === "m" ? 0 : 1)}
+            y={this.state.user.gender === "m" ? 0 : 1}
             images={Avatar.getAll()}
             selectedImage={this.state.user.avatar}
             onChange={avatar => {
               let user = this.state.user;
               user.avatar = avatar;
-              this.setState({user: user});
+              this.setState({ user: user });
             }}
           />
         </section>
       );
-
     } else {
       return null;
     }

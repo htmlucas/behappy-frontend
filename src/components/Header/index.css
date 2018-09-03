@@ -24,20 +24,20 @@ div.header h4.label {
 
 @media (max-width: 992px) {
   div.header img.logo {
-      height: 78px;
-      width: 139px;
+    height: 78px;
+    width: 139px;
   }
   div.header h4.label {
-      line-height: 78px;
+    line-height: 78px;
   }
 }
 
 @media (max-width: 600px) {
   div.header img.logo {
-      height: 62px;
-      width: 110px;
+    height: 62px;
+    width: 110px;
   }
   div.header h4.label {
-      line-height: 62px;
+    line-height: 62px;
   }
 }
